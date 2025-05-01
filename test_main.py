@@ -62,7 +62,6 @@ class TestBooksCollector:
     def test_get_list_of_favorites_books(self, collector, books_list):
         for book, genre in books_list.items():
             collector.add_new_book(book)
-            collector.set_book_genre(book, genre)
             collector.add_book_in_favorites(book)
         favorites = collector.get_list_of_favorites_books()
         assert set(favorites) == set(books_list.keys())
@@ -74,3 +73,9 @@ class TestBooksCollector:
         children_books = collector.get_books_for_children()
         expected_children_books = ["Гарри Поттер", "Маша и медведь", "Двенадцать стульев"]
         assert sorted(children_books) == sorted(expected_children_books)
+
+    def test_get_books_genre(self, collector, books_list):
+        for book, genre in books_list.items():
+            collector.add_new_book(book)
+            collector.set_book_genre(book, genre)
+        assert collector.get_books_genre() == books_list

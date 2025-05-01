@@ -14,3 +14,5 @@ test_delete_book_from_favorite - проверка удаления книги и
 test_get_list_of_favorites_books - проверка получения списка избранных книг
 
 test_get_books_for_children - проверка получения списка книг для детей
+
+test_get_books_genre - проверка получения словаря books_genre
